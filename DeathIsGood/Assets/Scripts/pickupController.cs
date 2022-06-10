@@ -15,7 +15,7 @@ public class pickupController : MonoBehaviour
     [SerializeField] private float pickupForce = 155.0f;
 
     private void Update(){
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0)&&!PauseMenu.GamePaused){
             if(heldObj == null){
                 RaycastHit hit;
                 if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward),out hit, pickupRange)){

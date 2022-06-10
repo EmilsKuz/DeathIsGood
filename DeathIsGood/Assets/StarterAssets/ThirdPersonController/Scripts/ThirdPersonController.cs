@@ -135,6 +135,8 @@ namespace StarterAssets
 
         private void Start()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);
@@ -155,13 +157,14 @@ namespace StarterAssets
 
         private void Update()
         {
-            _hasAnimator = TryGetComponent(out _animator);
+            if(!PauseMenu.GamePaused){
+                _hasAnimator = TryGetComponent(out _animator);
 
-            JumpAndGravity();
-            GroundedCheck();
-            Move();
-            FellOff();
-            
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
+                FellOff();
+            }
         }
 
         private void LateUpdate()
