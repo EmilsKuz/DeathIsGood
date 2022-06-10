@@ -157,14 +157,12 @@ namespace StarterAssets
 
         private void Update()
         {
-            if(!PauseMenu.GamePaused){
-                _hasAnimator = TryGetComponent(out _animator);
+            _hasAnimator = TryGetComponent(out _animator);
 
-                JumpAndGravity();
-                GroundedCheck();
-                Move();
-                FellOff();
-            }
+            JumpAndGravity();
+            GroundedCheck();
+            Move();
+            FellOff();
         }
 
         private void LateUpdate()
