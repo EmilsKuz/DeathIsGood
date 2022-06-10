@@ -3,28 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlatformCollision : MonoBehaviour
+public class GrainCollection : MonoBehaviour
 {
     public Text grainText;
-    public static float grain;
-    // Start is called before the first frame update
+    public static int grain;
+
     void Start()
     {
         grain=0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider other) {
-        if (other.tag!="Player"){
+        if (other.tag!="Player"&&other.tag=="Grain"){
             Destroy(other.gameObject);
             grain++;
             updateText();
-            //++ noteiktā item skaitam piem grain or smt like that
         } 
     }
     private void updateText(){
