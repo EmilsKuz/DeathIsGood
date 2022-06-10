@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class JumpOff : MonoBehaviour
 {
-    [SerializeField] private Transform player;
+  [SerializeField] private GameObject player;
   [SerializeField] private Transform respawnPoint;
 
+    void Start(){
+
+    }
+
     void OnTriggerEnter(Collider other) {
-        Debug.Log("nostrada");
-        player.transform.position = respawnPoint.transform.position;
-        other.gameObject.transform.position = respawnPoint.transform.position;
+        other.gameObject.transform.position = respawnPoint.transform.position;//teleporte itemus kas izkrit ara
     }
 }

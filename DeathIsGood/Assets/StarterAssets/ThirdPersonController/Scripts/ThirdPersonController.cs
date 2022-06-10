@@ -17,6 +17,7 @@ namespace StarterAssets
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
+        
 
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
@@ -159,6 +160,8 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            FellOff();
+            
         }
 
         private void LateUpdate()
@@ -386,6 +389,11 @@ namespace StarterAssets
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+            }
+        }
+        private void FellOff(){
+            if(gameObject.transform.position.y < 0){
+                gameObject.transform.position = new Vector3(-40,35,100);
             }
         }
     }
