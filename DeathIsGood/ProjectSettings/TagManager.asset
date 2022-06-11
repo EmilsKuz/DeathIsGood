@@ -8,6 +8,7 @@ TagManager:
   - Grain
   - Package
   - Jug
+  - Item
   layers:
   - Default
   - TransparentFX

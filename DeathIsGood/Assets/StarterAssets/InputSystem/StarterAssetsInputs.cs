@@ -68,9 +68,9 @@ namespace StarterAssets
 
 		private void OnApplicationFocus(bool hasFocus)
 		{
-			if(!PauseMenu.GamePaused){
+			//if(!PauseMenu.GamePaused){
 				SetCursorState(cursorLocked);
-			}
+			//}
 		}
 
 		private void SetCursorState(bool newState)
