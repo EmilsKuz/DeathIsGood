@@ -27,9 +27,15 @@ public class PickUpItem : MonoBehaviour
                 if(Item.name=="Axe"){
                     axe++;
                     axeText.text = axe+"/1";
+                    if(axe>0){
+                        axeText.color = Color.green;
+                    }
                 }else{
                     shield++;
                     shieldText.text = shield+"/1";
+                    if(shield>0){
+                        shieldText.color = Color.green;
+                    }
                 }
                 Destroy(Item);
                 Item=null;

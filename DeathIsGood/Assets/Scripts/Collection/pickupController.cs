@@ -47,7 +47,6 @@ public class pickupController : MonoBehaviour
             heldObjRB.useGravity = false;
             heldObjRB.drag = 10;
             heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;//lai nerot'e
-
             heldObjRB.transform.parent = holdArea;
             heldObj = pickObj;
         }

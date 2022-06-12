@@ -22,6 +22,9 @@ public class JugCollection : MonoBehaviour
         } 
     }
     private void updateText(){
+        if(jug>3){
+            jugText.color = Color.green;
+        }
         jugText.text = jug + "/4";
     }
 }

@@ -21,6 +21,9 @@ public class GrainCollection : MonoBehaviour
         } 
     }
     private void updateText(){
+        if(grain>3){
+            grainText.color = Color.green;
+        }
         grainText.text = grain + "/4";
     }
 }

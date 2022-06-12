@@ -22,6 +22,9 @@ public Text packageText;
         } 
     }
     private void updateText(){
+         if(package>3){
+            packageText.color = Color.green;
+        }
         packageText.text = package + "/4";
     }
 }
