@@ -7,6 +7,7 @@ public class GrainCollection : MonoBehaviour
 {
     public Text grainText;
     public static int grain;
+    public AudioSource getSound;
 
     void Start()
     {
@@ -15,9 +16,7 @@ public class GrainCollection : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.tag!="Player"&&other.tag=="Grain"){
-            Destroy(other.gameObject);
-            grain++;
-            updateText();
+            StartCoroutine(objDeleteDelay(other));
         } 
     }
     private void updateText(){
@@ -25,5 +24,14 @@ public class GrainCollection : MonoBehaviour
             grainText.color = Color.green;
         }
         grainText.text = grain + "/4";
+    }
+
+    IEnumerator objDeleteDelay(Collider other){
+        grain++;
+        yield return null;
+        updateText();
+        getSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        Destroy(other.gameObject); 
     }
 }

@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class JugCollection : MonoBehaviour
 {
-   public Text jugText;
+    public Text jugText;
     public static int jug;
+    public AudioSource getSound;
 
     void Start()
     {
@@ -16,9 +17,7 @@ public class JugCollection : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.tag!="Player"&&other.tag=="Jug"){
-            Destroy(other.gameObject);
-            jug++;
-            updateText();
+           StartCoroutine(objDeleteDelay(other));
         } 
     }
     private void updateText(){
@@ -26,5 +25,14 @@ public class JugCollection : MonoBehaviour
             jugText.color = Color.green;
         }
         jugText.text = jug + "/4";
+    }
+
+    IEnumerator objDeleteDelay(Collider other){
+        jug++;
+        yield return null;
+        updateText();
+        getSound.Play();
+        yield return new WaitForSeconds(0.1f);
+        Destroy(other.gameObject); 
     }
 }
